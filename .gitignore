@@ -1,0 +1,80 @@
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django specific
+*.log
+*.pot
+*.pyc
+*.sqlite3
+db.sqlite3
+media/
+staticfiles/
+local_settings.py
+
+#
+# If you are using Django migrations
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sql
+
+# Ignore the environment variable files
+.env
+.env.*
+.vscode/
+.DS_Store
+.idea/
+
+# Ignore the virtual environment folder
+venv/
+env/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Ignore the Python eggs
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+*.so
+
+# Ignore PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Ignore Django related static files
+static/
+staticfiles/
+
+# Ignore local database
+*.db
+*.sql
+*.sqlite3
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Ignore test and coverage results
+.coverage
+.tox/
+.pytest_cache/
+.coverage.*
+*.cover
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+
+# Ignore compiled Cython files
+*.c
+*.so
+
+# Ignore macOS files
+*.DS_Store

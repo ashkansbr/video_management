@@ -29,7 +29,7 @@ class BaseUserManager(BUM):
 
 class BaseUser(BaseModel, AbstractBaseUser, PermissionsMixin):
 
-    email = models.EmailField(_("email address"), blank=True, unique=True)
+    email = models.EmailField(verbose_name="email address", unique=True)
     is_admin = models.BooleanField(default=False)
     is_active = models.BooleanField(
         _("active"),

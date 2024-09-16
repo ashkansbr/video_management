@@ -8,22 +8,24 @@ class BaseUserManager(BUM):
     def create_user(self, email, password=None, is_active=True, is_admin=False):
         if not email:
             raise ValueError('Users must have an email address')
-        user = self.model(email=self.normalize_email(email.lower()), is_active=is_active, is_admin=is_admin)
-        if password is None:
+
+        email = self.normalize_email(email.lower())
+        user = self.model(email=email, is_active=is_active, is_admin=is_admin)
+
+        if password:
             user.set_password(password)
         else:
             user.set_unusable_password()
-        user.full_clean()
+
         user.save(using=self._db)
         return user
 
-
-    def create_superuser(self, email, password:None):
-        user = self.create_user(email=email, is_active=True, is_admin=True, password=password)
+    def create_superuser(self, email, password=None):
+        user = self.create_user(email=email, password=password, is_active=True, is_admin=True)
         user.is_superuser = True
+        user.is_staff = True
         user.save(using=self._db)
         return user
-
 
 
 
@@ -50,3 +52,8 @@ class BaseUser(BaseModel, AbstractBaseUser, PermissionsMixin):
 
     def is_staff(self):
         return self.is_admin
+
+
+
+
+

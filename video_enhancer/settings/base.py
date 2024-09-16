@@ -25,6 +25,7 @@ THIRD_PARTY_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'psycopg2',
+    'drf_spectacular',
 
 ]
 # Application definition
@@ -111,6 +112,11 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+
+}
 
 
 AUTH_USER_MODEL = 'users.BaseUser'

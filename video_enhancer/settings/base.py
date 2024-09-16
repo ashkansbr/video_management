@@ -1,4 +1,5 @@
 from pathlib import Path
+import os
 from django.utils.timezone import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -148,3 +149,14 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# MinIO storage settings
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+AWS_ACCESS_KEY_ID = os.getenv('MINIO_STORAGE_ACCESS_KEY', 'minioadmin')
+AWS_SECRET_ACCESS_KEY = os.getenv('MINIO_STORAGE_SECRET_KEY', 'minioadmin')
+AWS_STORAGE_BUCKET_NAME = 'videos'
+AWS_S3_ENDPOINT_URL = 'http://minio:9001'
+AWS_S3_REGION_NAME = 'us-east-1'
+AWS_S3_USE_SSL = False
+AWS_DEFAULT_ACL = None

@@ -19,7 +19,7 @@ ALLOWED_HOSTS = []
 
 LOCAL_APPS = [
     'users',
-
+    'videos'
     ]
 
 THIRD_PARTY_APPS = [

@@ -5,13 +5,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
-DATABASES = {
-
+DDATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'video-enhancer',
-        'HOST': 'localhost',
-        'CONN_MAX_AGE': 600,
+        'NAME': 'video_db',
+        'USER': 'postgres',
+        'PASSWORD': 'password',
+        'HOST': 'django_db_1',
         'PORT': '5432',
     }
 }

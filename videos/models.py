@@ -1,3 +1,5 @@
+from dataclasses import field
+
 from django.db import models
 from common.basemodel import BaseModel
 
@@ -13,7 +15,7 @@ class Video(BaseModel):
     category = models.ManyToManyField(Category, related_name='videos')
     title = models.CharField(max_length=255)
     description = models.TextField()
-    duration = models.PositiveIntegerField()
+    duration = models.DurationField()
     video_file = models.FileField(upload_to='videos/')
 
     def __str__(self):

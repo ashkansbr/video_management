@@ -1,6 +1,21 @@
-from ..models import Category
+from ..models import Category, Video
 from django.core.exceptions import ValidationError
 from django.db import transaction
+
+
+@transaction.atomic
+def create_video(title, description, duration, video_file, category):
+    video = Video.objects.create(
+        title=title,
+        description=description,
+        duration=duration,
+        video_file=video_file
+    )
+    video.category.set(category)
+    video.save()
+
+    return video
+
 
 
 @transaction.atomic
